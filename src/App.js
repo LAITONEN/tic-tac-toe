@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Cell from './components/Cell'
 import './App.css';
 
 function App() {
+
+  const [boardSize, setBoardSize] = useState(3);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {createBoard(boardSize)}
     </div>
   );
+}
+
+const createBoard = (size) => {
+  const numberOfCells = size * size
+  return Array(numberOfCells).fill(null, 0, numberOfCells).map((v) => <Cell>x</Cell>)
 }
 
 export default App;

@@ -1,12 +1,12 @@
-
+import './Cell.scss';
 
 function App(props) {
 
-  const { children } = props;
+  const { children, onClick } = props;
 
   return (
-    <div className="Cell">
-      {children}
+    <div className="Cell" onClick={onClick}>
+      {children === 1 ? 'X' : children === 2 ? 'O' : ''}
     </div>
   );
 }
